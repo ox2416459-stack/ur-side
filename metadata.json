@@ -1,0 +1,8 @@
+{
+  "name": "নতুন কাকের শুত্র (Notun Kaker Shutro)",
+  "description": "লাইভ ভিডিও ও বিশ্লেষণমূলক পোস্ট পোর্টাল — রিয়েলটাইম ক্লাউড সিঙ্ক, অ্যাডমিন ম্যানেজমেন্ট ও নেটলিফাই ডেপ্লয়মেন্ট রেডি।",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

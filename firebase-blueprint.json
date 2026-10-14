@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "PostItem": {
+      "title": "PostItem",
+      "description": "Video or article post item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "slug": { "type": "string" },
+        "title": { "type": "string" },
+        "contentType": { "type": "string", "enum": ["post", "video"] },
+        "category": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "videoDuration": { "type": "string" },
+        "thumbnailUrl": { "type": "string" },
+        "description": { "type": "string" },
+        "fullContent": { "type": "string" },
+        "tags": { "type": "array" },
+        "postState": { "type": "string", "enum": ["published", "draft", "archived"] },
+        "isFeatured": { "type": "boolean" },
+        "isPremium": { "type": "boolean" },
+        "publishedDate": { "type": "string" },
+        "viewsCount": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "slug", "title", "contentType", "category", "thumbnailUrl", "description", "fullContent", "postState"]
+    },
+    "PublicUser": {
+      "title": "PublicUser",
+      "description": "Registered public user account and premium access state",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "password": { "type": "string" },
+        "isPremium": { "type": "boolean" },
+        "isBlocked": { "type": "boolean" },
+        "premiumRequested": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "lastLogin": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "isPremium", "isBlocked"]
+    },
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "Global website configuration",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string" },
+        "tagline": { "type": "string" },
+        "contactEmail": { "type": "string" },
+        "contactPhone": { "type": "string" },
+        "officeAddress": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/posts/{postId}": {
+      "schema": "PostItem",
+      "description": "Published articles and video documentaries"
+    },
+    "/public_users/{userId}": {
+      "schema": "PublicUser",
+      "description": "Registered users with premium access permissions"
+    },
+    "/settings/{settingsId}": {
+      "schema": "SiteSettings",
+      "description": "Global site settings and notices"
+    }
+  }
+}
